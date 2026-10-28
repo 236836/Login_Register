@@ -1,15 +1,17 @@
-import Register from "./Register.jsx";
-import Login from "./Login.jsx";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Tasks from "./pages/Tasks";
 
-function App() {
-
+export default function App() {
   return (
-    <>
-     <Register />; 
-     <Login />;
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/tasks" element={<Tasks />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App
